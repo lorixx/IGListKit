@@ -11,7 +11,6 @@ fi
 SOURCE=Source
 SOURCE_TMP=IGListKit
 SOURCEDIR=Source/
-COMMONDIR=Source/Common/
 
 jazzy \
 	--objc \
