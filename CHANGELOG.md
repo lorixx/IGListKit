@@ -2,6 +2,42 @@
 
 The changelog for `IGListKit`. Also see the [releases](https://github.com/instagram/IGListKit/releases) on GitHub.
 
+
+5.0.0 (upcoming release)
+-----
+
+### Breaking Changes
+
+- Removed unneeded diffing functions `IGListDiffExperiment(...)` and `IGListDiffPathsExperiment(...)`. [Maxime Ollivier](https://github.com/maxolls) (tbd)
+
+- `ListSectionController.collectionContext` and `ListGenericSectionController.object` are now implicitly-unwrapped optionals in Swift. [Nate Stedman](https://github.com/natestedman) (tbd)
+
+- The argument of `IGListGenericSectionController`'s `-didUpdateToObject:` is now generic, not `id`. [Nate Stedman](https://github.com/natestedman) (tbd)
+
+### Enhancements
+
+- Introduce `IGListSwiftKit`, with Swift refinements for `dequeueReusableCellOfClass` methods. [Koen Punt](https://github.com/koenpunt) [(#1388)](https://github.com/Instagram/IGListKit/pull/1388).
+
+- Added `APPLICATION_EXTENSION_API_ONLY` support for `IGListDiffKit` [Peter Meyers](https://github.com/pm-dev) [(#1422)](https://github.com/Instagram/IGListKit/pull/1422)
+
+-  Improved performance by deferring requesting objects from the `IGListAdapterDataSource` until just before diffing is executed. If n updates are coalesced into one, this results in just a single request for objects from the data source. Shipped with experiment `IGListExperimentDeferredToObjectCreation` from Ryan Nystrom.  [Maxime Ollivier](https://github.com/maxolls) (tbd)
+
+- Improved performance by using `reloadData` when there are too many diffing updates. Shipped with experiment `IGListExperimentReloadDataFallback` from Ryan Nystrom. [Maxime Ollivier](https://github.com/maxolls) (tbd)
+
+### Fixes
+
+- `IGListCollectionViewLayout` should get the section/index counts via `UICollectionView` to stay in sync, instead of the `dataSource` [Maxime Ollivier](https://github.com/maxolls) (tbd)
+
+- Remove `[collectionView layoutIfNeeded]` before scrolling in `[IGListAdapter scrollToObject...]` to avoid creating off-screen cells. [Maxime Ollivier](https://github.com/maxolls) (tbd)
+
+- Remove `[collectionView layoutIfNeeded]` before updating in `[IGListAdapterUpdater performBatchUpdates...]` to fix occasional glitches. [Maxime Ollivier](https://github.com/maxolls) (tbd)
+
+- Fixed `IGListAdapterUpdaterDelegate` by 1) calling `willReloadDataWithCollectionView` on fallback reloads and 2) making sure `willPerformBatchUpdatesWithCollectionView` is only called when performing a batch update. [Maxime Ollivier](https://github.com/maxolls) (tbd)
+
+- Fixed missing update when calling `performUpdatesAnimated` multiple times quickly and using the `reloadDataFallback()`. [Maxime Ollivier](https://github.com/maxolls) (tbd)
+
+- Request the `UICollectionView` until just-before we update. This way if the `UICollectionView` is changed between update-queue and execution, we guarantee the update is performed on the correct view. Ship with experiment `IGListExperimentGetCollectionViewAtUpdate` from Ryan Nystrom. [Maxime Ollivier](https://github.com/maxolls) (tbd)
+
 4.0.0
 -----
 ### Breaking Changes
@@ -38,9 +74,9 @@ The changelog for `IGListKit`. Also see the [releases](https://github.com/instag
 
 ### Fixes
 
-- Fixed bug with layouts inconsistency in `updateAnimated:completion` of IGListBindingSectionController. [Qinghua Hong](https://github.com/xohozu) [(#1285)](https://github.com/Instagram/IGListKit/pull/1285)
+- Fixed bug with layouts inconsistency in `updateAnimated:completion` of IGListBindingSectionController. [Qinghua Hong](https://github.com/qhhonx) [(#1285)](https://github.com/Instagram/IGListKit/pull/1285)
 
-- Fixed bug with `-[IGListAdapter scrollToObject:supplementaryKinds:scrollDirection:scrollPosition:animated:]` where the content inset(bottom/right) of the collection view was incorrectly being applied to the final offset and was inconsistent with the content inset(top/left) of the collection view being applied. [Qinghua Hong](https://github.com/xohozu) [(#1284)](https://github.com/Instagram/IGListKit/pull/1284)
+- Fixed bug with `-[IGListAdapter scrollToObject:supplementaryKinds:scrollDirection:scrollPosition:animated:]` where the content inset(bottom/right) of the collection view was incorrectly being applied to the final offset and was inconsistent with the content inset(top/left) of the collection view being applied. [Qinghua Hong](https://github.com/qhhonx) [(#1284)](https://github.com/Instagram/IGListKit/pull/1284)
 
 - Fixed crash when the data source is nil before calling `-[IGListAdapterUpdater performUpdateWithCollectionViewBlock:fromObjects:toObjectsBlock:animated:objectTransitionBlock:completion:]`. [Zhisheng Huang](https://github.com/lorixx) [(6cdd112)](https://github.com/Instagram/IGListKit/commit/6cdd112790f13a683d3e061a7646f2c3549cc4dd)
 

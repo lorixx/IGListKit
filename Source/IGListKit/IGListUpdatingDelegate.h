@@ -1,4 +1,4 @@
-/**
+/*
  * Copyright (c) Facebook, Inc. and its affiliates.
  *
  * This source code is licensed under the MIT license found in the
@@ -42,6 +42,10 @@ typedef NSArray * _Nullable (^IGListToObjectBlock)(void);
 /// A block that returns a collection view to perform updates on.
 NS_SWIFT_NAME(ListCollectionViewBlock)
 typedef UICollectionView * _Nullable (^IGListCollectionViewBlock)(void);
+
+/// A block that applies a `UICollectionView` dataSource change
+NS_SWIFT_NAME(ListDataSourceChangeBlock)
+typedef void (^IGListDataSourceChangeBlock)(void);
 
 /**
  Implement this protocol in order to handle both section and row based update events. Implementation should forward or
@@ -176,4 +180,3 @@ NS_SWIFT_NAME(ListUpdatingDelegate)
 @end
 
 NS_ASSUME_NONNULL_END
-
