@@ -8,13 +8,21 @@
     <script src="js/jquery.min.js" defer></script>
     <script src="js/jazzy.js" defer></script>
     
+    <script src="js/lunr.min.js" defer></script>
+    <script src="js/typeahead.jquery.js" defer></script>
+    <script src="js/jazzy.search.js" defer></script>
   </head>
   <body>
     <a title="Getting Started  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">IGListKit Docs</a> (98% documented)</p>
+        <p><a href="index.html">IGListKit 4.1.0 Docs</a> (98% documented)</p>
         <p class="header-right"><a href="https://github.com/Instagram/IGListKit"><img src="img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right">
+          <form role="search" action="search.json">
+            <input type="text" placeholder="Search documentation" data-typeahead>
+          </form>
+        </p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -69,7 +77,7 @@
                 <a href="Classes/IGListAdapter.html">IGListAdapter</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/IGListAdapterUpdater.html">IGListAdapterUpdater</a>
+                <a href="Classes.html#/c:objc(cs)IGListAdapterUpdater">IGListAdapterUpdater</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/IGListBatchUpdateData.html">IGListBatchUpdateData</a>
@@ -153,6 +161,9 @@
                 <a href="Protocols/IGListAdapterUpdateListener.html">IGListAdapterUpdateListener</a>
               </li>
               <li class="nav-group-task">
+                <a href="Protocols/IGListAdapterUpdaterCompatible.html">IGListAdapterUpdaterCompatible</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Protocols/IGListAdapterUpdaterDelegate.html">IGListAdapterUpdaterDelegate</a>
               </li>
               <li class="nav-group-task">
@@ -212,6 +223,9 @@
                 <a href="Type%20Definitions.html#/c:IGListUpdatingDelegate.h@T@IGListCollectionViewBlock">IGListCollectionViewBlock</a>
               </li>
               <li class="nav-group-task">
+                <a href="Type%20Definitions.html#/c:IGListUpdatingDelegate.h@T@IGListDataSourceChangeBlock">IGListDataSourceChangeBlock</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Type%20Definitions.html#/c:IGListUpdatingDelegate.h@T@IGListItemUpdateBlock">IGListItemUpdateBlock</a>
               </li>
               <li class="nav-group-task">
@@ -244,13 +258,7 @@
                 <a href="Functions.html#/c:@F@IGListDiff">IGListDiff</a>
               </li>
               <li class="nav-group-task">
-                <a href="Functions.html#/c:@F@IGListDiffExperiment">IGListDiffExperiment</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="Functions.html#/c:@F@IGListDiffPaths">IGListDiffPaths</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Functions.html#/c:@F@IGListDiffPathsExperiment">IGListDiffPathsExperiment</a>
               </li>
               <li class="nav-group-task">
                 <a href="Functions.html#/c:IGListExperiments.h@F@IGListExperimentEnabled">IGListExperimentEnabled</a>
@@ -304,7 +312,7 @@
 </code></pre>
 
 <blockquote>
-<p><strong>Note:</strong> This example is done within a <code>UIViewController</code> and uses both a stock <code>UICollectionViewFlowLayout</code> and <code><a href="Classes/IGListAdapterUpdater.html">IGListAdapterUpdater</a></code>. You can use your own layout and updater if you need advanced features!</p>
+<p><strong>Note:</strong> This example is done within a <code>UIViewController</code> and uses both a stock <code>UICollectionViewFlowLayout</code> and <code><a href="Classes.html#/c:objc(cs)IGListAdapterUpdater">IGListAdapterUpdater</a></code>. You can use your own layout and updater if you need advanced features!</p>
 </blockquote>
 <h3 id='connecting-the-data-source' class='heading'>Connecting the data source</h3>
 
@@ -414,15 +422,15 @@
 <p>Section controllers can set the weak <code>displayDelegate</code> delegate to an object, including <code>self</code>, to receive display events about a section controller and individual cells.</p>
 <h3 id='custom-updaters' class='heading'>Custom Updaters</h3>
 
-<p>The default <code><a href="Classes/IGListAdapterUpdater.html">IGListAdapterUpdater</a></code> should handle any <code>UICollectionView</code> update that you need. However, if you find the functionality lacking, or want to perform updates in a very specific way, you can create an object that conforms to the <code><a href="Protocols/IGListUpdatingDelegate.html">IGListUpdatingDelegate</a></code> protocol and initialize a new <code><a href="Classes/IGListAdapter.html">IGListAdapter</a></code> with it.</p>
+<p>The default <code><a href="Classes.html#/c:objc(cs)IGListAdapterUpdater">IGListAdapterUpdater</a></code> should handle any <code>UICollectionView</code> update that you need. However, if you find the functionality lacking, or want to perform updates in a very specific way, you can create an object that conforms to the <code><a href="Protocols/IGListUpdatingDelegate.html">IGListUpdatingDelegate</a></code> protocol and initialize a new <code><a href="Classes/IGListAdapter.html">IGListAdapter</a></code> with it.</p>
 
 <p>Check out the updater <code><a href="Classes.html#/c:objc(cs)IGListReloadDataUpdater">IGListReloadDataUpdater</a></code> (used in unit tests) for an example.</p>
 
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://twitter.com/fbOpenSource" target="_blank" rel="external">Instagram</a>. All rights reserved. (Last updated: 2019-11-22)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.12.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2020 <a class="link" href="https://twitter.com/fbOpenSource" target="_blank" rel="external">Instagram</a>. All rights reserved. (Last updated: 2020-09-10)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

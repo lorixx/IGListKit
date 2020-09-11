@@ -8,14 +8,22 @@
     <script src="../js/jquery.min.js" defer></script>
     <script src="../js/jazzy.js" defer></script>
     
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
     <a name="//apple_ref/objc/Protocol/IGListUpdatingDelegate" class="dashAnchor"></a>
     <a title="IGListUpdatingDelegate Protocol Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">IGListKit Docs</a> (98% documented)</p>
+        <p><a href="../index.html">IGListKit 4.1.0 Docs</a> (98% documented)</p>
         <p class="header-right"><a href="https://github.com/Instagram/IGListKit"><img src="../img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right">
+          <form role="search" action="../search.json">
+            <input type="text" placeholder="Search documentation" data-typeahead>
+          </form>
+        </p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -70,7 +78,7 @@
                 <a href="../Classes/IGListAdapter.html">IGListAdapter</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/IGListAdapterUpdater.html">IGListAdapterUpdater</a>
+                <a href="../Classes.html#/c:objc(cs)IGListAdapterUpdater">IGListAdapterUpdater</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/IGListBatchUpdateData.html">IGListBatchUpdateData</a>
@@ -154,6 +162,9 @@
                 <a href="../Protocols/IGListAdapterUpdateListener.html">IGListAdapterUpdateListener</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Protocols/IGListAdapterUpdaterCompatible.html">IGListAdapterUpdaterCompatible</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Protocols/IGListAdapterUpdaterDelegate.html">IGListAdapterUpdaterDelegate</a>
               </li>
               <li class="nav-group-task">
@@ -213,6 +224,9 @@
                 <a href="../Type%20Definitions.html#/c:IGListUpdatingDelegate.h@T@IGListCollectionViewBlock">IGListCollectionViewBlock</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Type%20Definitions.html#/c:IGListUpdatingDelegate.h@T@IGListDataSourceChangeBlock">IGListDataSourceChangeBlock</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Type%20Definitions.html#/c:IGListUpdatingDelegate.h@T@IGListItemUpdateBlock">IGListItemUpdateBlock</a>
               </li>
               <li class="nav-group-task">
@@ -245,13 +259,7 @@
                 <a href="../Functions.html#/c:@F@IGListDiff">IGListDiff</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Functions.html#/c:@F@IGListDiffExperiment">IGListDiffExperiment</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Functions.html#/c:@F@IGListDiffPaths">IGListDiffPaths</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Functions.html#/c:@F@IGListDiffPathsExperiment">IGListDiffPathsExperiment</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Functions.html#/c:IGListExperiments.h@F@IGListExperimentEnabled">IGListExperimentEnabled</a>
@@ -274,7 +282,13 @@
             <h1>IGListUpdatingDelegate</h1>
               <div class="declaration">
                 <div class="language">
+                  <p class="aside-title">Objective-C</p>
                   <pre class="highlight objective_c"><code><span class="k">@protocol</span> <span class="nc">IGListUpdatingDelegate</span> <span class="o">&lt;</span><span class="n">NSObject</span><span class="o">&gt;</span></code></pre>
+
+                </div>
+                <div class="language">
+                  <p class="aside-title">Swift</p>
+                  <pre class="highlight swift"><code><span class="kd">protocol</span> <span class="kt">ListUpdatingDelegate</span> <span class="p">:</span> <span class="kt">NSObjectProtocol</span></code></pre>
 
                 </div>
               </div>
@@ -301,8 +315,8 @@ coalesce these events to a backing store or collection.</p>
                         <p>Asks the delegate for the pointer functions for looking up an object in a collection.</p>
 <div class="aside aside-note">
     <p class="aside-title">Note</p>
-    <p>Since the updating delegate is responsible for transitioning between object sets, it becomes the <q>source of
-truth</q> for how objects and their corresponding section controllers are mapped. This allows the updater to control if
+    <p>Since the updating delegate is responsible for transitioning between object sets, it becomes the &ldquo;source of
+truth&rdquo; for how objects and their corresponding section controllers are mapped. This allows the updater to control if
 objects are looked up by pointer, or more traditionally, with <code>-hash</code>/<code>-isEqual</code>.</p>
 
 </div>
@@ -336,7 +350,7 @@ objects are looked up by pointer, or more traditionally, with <code>-hash</code>
                     <code>
                     <a name="/c:objc(pl)IGListUpdatingDelegate(im)performUpdateWithCollectionViewBlock:fromObjects:toObjectsBlock:animated:objectTransitionBlock:completion:"></a>
                     <a name="//apple_ref/objc/Method/-performUpdateWithCollectionViewBlock:fromObjects:toObjectsBlock:animated:objectTransitionBlock:completion:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(pl)IGListUpdatingDelegate(im)performUpdateWithCollectionViewBlock:fromObjects:toObjectsBlock:animated:objectTransitionBlock:completion:">-performUpdateWithCollectionViewBlock:fromObjects:toObjectsBlock:animated:objectTransitionBlock:completion:</a>
+                    <a class="token" href="#/c:objc(pl)IGListUpdatingDelegate(im)performUpdateWithCollectionViewBlock:fromObjects:toObjectsBlock:animated:objectTransitionBlock:completion:">-performUpdateWithCollectionViewBlock:<wbr>fromObjects:<wbr>toObjectsBlock:<wbr>animated:<wbr>objectTransitionBlock:<wbr>completion:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -464,7 +478,7 @@ that the updater is applying.</p>
                     <code>
                     <a name="/c:objc(pl)IGListUpdatingDelegate(im)insertItemsIntoCollectionView:indexPaths:"></a>
                     <a name="//apple_ref/objc/Method/-insertItemsIntoCollectionView:indexPaths:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(pl)IGListUpdatingDelegate(im)insertItemsIntoCollectionView:indexPaths:">-insertItemsIntoCollectionView:indexPaths:</a>
+                    <a class="token" href="#/c:objc(pl)IGListUpdatingDelegate(im)insertItemsIntoCollectionView:indexPaths:">-insertItemsIntoCollectionView:<wbr>indexPaths:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -529,7 +543,7 @@ that the updater is applying.</p>
                     <code>
                     <a name="/c:objc(pl)IGListUpdatingDelegate(im)deleteItemsFromCollectionView:indexPaths:"></a>
                     <a name="//apple_ref/objc/Method/-deleteItemsFromCollectionView:indexPaths:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(pl)IGListUpdatingDelegate(im)deleteItemsFromCollectionView:indexPaths:">-deleteItemsFromCollectionView:indexPaths:</a>
+                    <a class="token" href="#/c:objc(pl)IGListUpdatingDelegate(im)deleteItemsFromCollectionView:indexPaths:">-deleteItemsFromCollectionView:<wbr>indexPaths:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -594,7 +608,7 @@ that the updater is applying.</p>
                     <code>
                     <a name="/c:objc(pl)IGListUpdatingDelegate(im)moveItemInCollectionView:fromIndexPath:toIndexPath:"></a>
                     <a name="//apple_ref/objc/Method/-moveItemInCollectionView:fromIndexPath:toIndexPath:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(pl)IGListUpdatingDelegate(im)moveItemInCollectionView:fromIndexPath:toIndexPath:">-moveItemInCollectionView:fromIndexPath:toIndexPath:</a>
+                    <a class="token" href="#/c:objc(pl)IGListUpdatingDelegate(im)moveItemInCollectionView:fromIndexPath:toIndexPath:">-moveItemInCollectionView:<wbr>fromIndexPath:<wbr>toIndexPath:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -671,7 +685,7 @@ that the updater is applying.</p>
                     <code>
                     <a name="/c:objc(pl)IGListUpdatingDelegate(im)reloadItemInCollectionView:fromIndexPath:toIndexPath:"></a>
                     <a name="//apple_ref/objc/Method/-reloadItemInCollectionView:fromIndexPath:toIndexPath:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(pl)IGListUpdatingDelegate(im)reloadItemInCollectionView:fromIndexPath:toIndexPath:">-reloadItemInCollectionView:fromIndexPath:toIndexPath:</a>
+                    <a class="token" href="#/c:objc(pl)IGListUpdatingDelegate(im)reloadItemInCollectionView:fromIndexPath:toIndexPath:">-reloadItemInCollectionView:<wbr>fromIndexPath:<wbr>toIndexPath:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -755,7 +769,7 @@ destination of the reload to perform a safe transition.</p>
                     <code>
                     <a name="/c:objc(pl)IGListUpdatingDelegate(im)moveSectionInCollectionView:fromIndex:toIndex:"></a>
                     <a name="//apple_ref/objc/Method/-moveSectionInCollectionView:fromIndex:toIndex:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(pl)IGListUpdatingDelegate(im)moveSectionInCollectionView:fromIndex:toIndex:">-moveSectionInCollectionView:fromIndex:toIndex:</a>
+                    <a class="token" href="#/c:objc(pl)IGListUpdatingDelegate(im)moveSectionInCollectionView:fromIndex:toIndex:">-moveSectionInCollectionView:<wbr>fromIndex:<wbr>toIndex:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -832,7 +846,7 @@ destination of the reload to perform a safe transition.</p>
                     <code>
                     <a name="/c:objc(pl)IGListUpdatingDelegate(im)reloadDataWithCollectionViewBlock:reloadUpdateBlock:completion:"></a>
                     <a name="//apple_ref/objc/Method/-reloadDataWithCollectionViewBlock:reloadUpdateBlock:completion:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(pl)IGListUpdatingDelegate(im)reloadDataWithCollectionViewBlock:reloadUpdateBlock:completion:">-reloadDataWithCollectionViewBlock:reloadUpdateBlock:completion:</a>
+                    <a class="token" href="#/c:objc(pl)IGListUpdatingDelegate(im)reloadDataWithCollectionViewBlock:reloadUpdateBlock:completion:">-reloadDataWithCollectionViewBlock:<wbr>reloadUpdateBlock:<wbr>completion:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -912,7 +926,7 @@ destination of the reload to perform a safe transition.</p>
                     <code>
                     <a name="/c:objc(pl)IGListUpdatingDelegate(im)reloadCollectionView:sections:"></a>
                     <a name="//apple_ref/objc/Method/-reloadCollectionView:sections:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(pl)IGListUpdatingDelegate(im)reloadCollectionView:sections:">-reloadCollectionView:sections:</a>
+                    <a class="token" href="#/c:objc(pl)IGListUpdatingDelegate(im)reloadCollectionView:sections:">-reloadCollectionView:<wbr>sections:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -976,7 +990,7 @@ destination of the reload to perform a safe transition.</p>
                     <code>
                     <a name="/c:objc(pl)IGListUpdatingDelegate(im)performUpdateWithCollectionViewBlock:animated:itemUpdates:completion:"></a>
                     <a name="//apple_ref/objc/Method/-performUpdateWithCollectionViewBlock:animated:itemUpdates:completion:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(pl)IGListUpdatingDelegate(im)performUpdateWithCollectionViewBlock:animated:itemUpdates:completion:">-performUpdateWithCollectionViewBlock:animated:itemUpdates:completion:</a>
+                    <a class="token" href="#/c:objc(pl)IGListUpdatingDelegate(im)performUpdateWithCollectionViewBlock:animated:itemUpdates:completion:">-performUpdateWithCollectionViewBlock:<wbr>animated:<wbr>itemUpdates:<wbr>completion:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1069,8 +1083,8 @@ destination of the reload to perform a safe transition.</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://twitter.com/fbOpenSource" target="_blank" rel="external">Instagram</a>. All rights reserved. (Last updated: 2019-11-22)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.12.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2020 <a class="link" href="https://twitter.com/fbOpenSource" target="_blank" rel="external">Instagram</a>. All rights reserved. (Last updated: 2020-09-10)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>
